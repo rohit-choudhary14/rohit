@@ -1,10 +1,27 @@
 <%-- 
-    Document   : profile
-    Created on : 21 Feb, 2022, 11:45:47 PM
+    Document   : Add_title
+    Created on : 13 Mar, 2022, 3:22:09 AM
     Author     : rohit
 --%>
-<%@page contentType="text/html"import="java.sql.*" pageEncoding="UTF-8"%>
 
+<%@page contentType="text/html"import="java.sql.*" pageEncoding="UTF-8"%>
+ <%
+String email=" ";
+String album_code=" ";
+
+Cookie c[]=request.getCookies();
+for(int i=0;i<c.length;i++){
+   if(c[i].getName().equals("login")){
+       email=c[i].getValue();
+   }
+
+}
+if(email!=null){
+                    if(request.getParameter("code").length()!=0){
+                        album_code=request.getParameter("code");
+                    
+
+                                %>
 <!DOCTYPE html>
 <head>
 <title>mp3</title>
@@ -112,17 +129,17 @@ button.input-group-addon {
 </header>
 <!--header end-->
 <!--sidebar start-->
-<aside >
-    <div id="sidebar" class="nav-collapse" style="background-color:#536878" >
+<aside>
+    <div id="sidebar" class="nav-collapse"style="background-color:#536878" >
         <!-- sidebar menu start-->
         <div class="leftside-navigation" >
             <ul class="sidebar-menu" id="nav-accordion">
                
                 <li>
-                    <a style="cursor:pointer">
-                        <i class="fa fa-user"></i>
+                    <a style="cursor:pointer" href="dashbord.jsp">
+                        <i class="fa fa-dashboard"></i>
                         
-                        <span data-toggle="modal" data-target="#myModal">Sign in</span>
+                        <span>Dashbord</span>
                         <!-- Button to Open the Modal -->
 
 
@@ -138,60 +155,38 @@ button.input-group-addon {
 	<section class="wrapper">
 		<!-- //market-->
 		<div class="container-fluid">
-                                  <!-- The Modal -->
-                                            <div class="modal" id="myModal">
-                                              <div class="modal-dialog">
-                                                <div class="modal-content">
-
-                                                  <!-- Modal Header -->
-                                                  <div class="modal-header">
-                                                    <h4 class="modal-title">Sign in</h4>
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                  </div>
-
-                                                  <!-- Modal body -->
-                                                  <div class="modal-body">
+                                    
+					
                                                    
-                                                           <div class="login-form">
-                                                                        <form action="login.jsp" method="post">
-                                                                             
-                                                                            <div class="form-group">
-                                                                                <label>Email:</label>
-                                                                                <input type="email"  name="email"class="form-control"required="required">
-                                                                            </div>
-                                                                            <div class="form-group">
-                                                                                <label>Password:</label>
-                                                                                <input type="password" name="password" class="form-control" placeholder="Password" required="required">
-                                                                            </div>
-                                                                            <div class="form-group">
-                                                                                <button type="submit" class="btn btn-primary btn-block">Log in</button>
-                                                                            </div>
-                                                                            <div class="clearfix">
-                                                                                <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
-                                                                                <a href="#" class="float-right">Forgot Password?</a>
-                                                                            </div>        
-                                                                        </form>
-                                                                       
-                                                                    </div>
-							
-						 </div>
-						
-						
-                                                       
-						 </div>
-						 
-                                                 
+                       <div class="row" style="margin-top:10%">
+                           <div class="col-sm-5"></div>
+                           <div class="col-sm-7"><strong style="font-size:30px">Upload Title</strong></div>
+                           <div class="col-sm-4"></div>
+                           <div class="col-sm-4">
+                               
+                           <div class="login-form">
+                              <form method="post" action="Add_music.jsp?code=<%=album_code%>">
+	                            <div class="form-group">
+                                        <label>Title:</label>
+                                        <input type="text"  name="title" class="form-control" required="required">
+                                    </div>
+	                        
+	
+	 
+<button class="btn btn-primary">Next</button> 
+ 
+</form>
 
-                                                  <!-- Modal footer -->
-                                                  <div class="modal-footer">
-                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                                  </div>
-
-                                                 </div>
-                                              </div>
-                                            
-                                               
-                                  <div class="row"></div>                     
+			   
+			</div>
+                           </div>
+                          <div class="col-sm-4"></div>
+                                   
+                                      
+                                      
+                                      
+                                      
+                                  </div>                     
 		   <div class="clearfix"></div>
                       
                   </div>
@@ -302,5 +297,9 @@ button.input-group-addon {
 		});
 	</script>
 	<!-- //calendar -->
+        <%
+}
+        }
+%>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : profile
-    Created on : 21 Feb, 2022, 11:45:47 PM
+    Document   : album
+    Created on : 12 Mar, 2022, 2:24:56 AM
     Author     : rohit
 --%>
 <%@page contentType="text/html"import="java.sql.*" pageEncoding="UTF-8"%>
@@ -73,9 +73,9 @@ button.input-group-addon {
 <body>
 <section id="container" >
 <!--header start-->
-<header class="header fixed-top clearfix" style="background-color:#801818">
+<header class="header fixed-top clearfix" style="background-color:darkcyan">
 <!--logo start-->
-<div class="brand"style="background-color:#536878">
+<div class="brand"style="background-color:black">
     <a  class="logo">
       Admin
     </a>
@@ -112,8 +112,8 @@ button.input-group-addon {
 </header>
 <!--header end-->
 <!--sidebar start-->
-<aside >
-    <div id="sidebar" class="nav-collapse" style="background-color:#536878" >
+<aside>
+    <div id="sidebar" class="nav-collapse" >
         <!-- sidebar menu start-->
         <div class="leftside-navigation" >
             <ul class="sidebar-menu" id="nav-accordion">
@@ -198,7 +198,7 @@ button.input-group-addon {
                    
 </section>
  <!-- footer -->
-		  <div class="footer" style="background-color:#801818;margin-top:40%">
+		  <div class="footer" style="background-color:darkcyan;margin-top:40%">
 			<div class="wthree-copyright">
 			  <p>© 2017 Visitors. All rights reserved | Design by <a href="http://w3layouts.com">Rohit Choudhary</a></p>
 			</div>

@@ -1,8 +1,39 @@
 <%-- 
-    Document   : profile
-    Created on : 21 Feb, 2022, 11:45:47 PM
+    Document   : album_image
+    Created on : 14 Mar, 2022, 1:41:29 AM
     Author     : rohit
 --%>
+
+<%-- 
+    Document   : Add_album
+    Created on : 13 Mar, 2022, 1:35:48 AM
+    Author     : rohit
+--%>
+<%
+     String email=" ";
+     String album_code=" "; 
+     String cat_name=" "; 
+     String cat_code=" ";
+     Cookie c[]=request.getCookies();
+     for(int i=0;i<c.length;i++){
+        if(c[i].getName().equals("login")){
+            
+            email=c[i].getValue();
+        }
+        
+    }
+    if(email!=null){
+                    if(request.getParameter("album_code").length()!=0 && request.getParameter("code").length()!=0){
+                       album_code=request.getParameter("album_code"); 
+                       cat_code=request.getParameter("code");
+                    
+    
+    
+    
+    
+    
+    %>
+
 <%@page contentType="text/html"import="java.sql.*" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -112,17 +143,17 @@ button.input-group-addon {
 </header>
 <!--header end-->
 <!--sidebar start-->
-<aside >
-    <div id="sidebar" class="nav-collapse" style="background-color:#536878" >
+<aside>
+    <div id="sidebar" class="nav-collapse" style="background-color:#536878">
         <!-- sidebar menu start-->
         <div class="leftside-navigation" >
             <ul class="sidebar-menu" id="nav-accordion">
                
                 <li>
-                    <a style="cursor:pointer">
-                        <i class="fa fa-user"></i>
+                    <a style="cursor:pointer" href="dashbord.jsp">
+                        <i class="fa fa-dashboard"></i>
                         
-                        <span data-toggle="modal" data-target="#myModal">Sign in</span>
+                        <span>Dashbord</span>
                         <!-- Button to Open the Modal -->
 
 
@@ -138,60 +169,49 @@ button.input-group-addon {
 	<section class="wrapper">
 		<!-- //market-->
 		<div class="container-fluid">
-                                  <!-- The Modal -->
-                                            <div class="modal" id="myModal">
-                                              <div class="modal-dialog">
-                                                <div class="modal-content">
-
-                                                  <!-- Modal Header -->
-                                                  <div class="modal-header">
-                                                    <h4 class="modal-title">Sign in</h4>
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                  </div>
-
-                                                  <!-- Modal body -->
-                                                  <div class="modal-body">
+                                    
+					
                                                    
-                                                           <div class="login-form">
-                                                                        <form action="login.jsp" method="post">
-                                                                             
-                                                                            <div class="form-group">
-                                                                                <label>Email:</label>
-                                                                                <input type="email"  name="email"class="form-control"required="required">
-                                                                            </div>
-                                                                            <div class="form-group">
-                                                                                <label>Password:</label>
-                                                                                <input type="password" name="password" class="form-control" placeholder="Password" required="required">
-                                                                            </div>
-                                                                            <div class="form-group">
-                                                                                <button type="submit" class="btn btn-primary btn-block">Log in</button>
-                                                                            </div>
-                                                                            <div class="clearfix">
-                                                                                <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
-                                                                                <a href="#" class="float-right">Forgot Password?</a>
-                                                                            </div>        
-                                                                        </form>
-                                                                       
-                                                                    </div>
-							
-						 </div>
-						
-						
-                                                       
-						 </div>
-						 
-                                                 
+                       <div class="row" style="margin-top:10%">
+                           <div class="col-sm-5"></div>
+                           <div class="col-sm-7"><strong style="font-size:30px">ALBUM PICTURE</strong></div>
+                           <div class="col-sm-4"></div>
+                           <div class="col-sm-4">
+                               
+                           <div class="login-form">
+                               <form method="post" ACTION="upload_album_process.jsp?code=<%=cat_code%>&album_code=<%=album_code%>"   name="uploadForm" ENCTYPE='multipart/form-data'>
 
-                                                  <!-- Modal footer -->
-                                                  <div class="modal-footer">
-                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                                  </div>
 
-                                                 </div>
-                                              </div>
-                                            
-                                               
-                                  <div class="row"></div>                     
+
+
+		      <div class="form-group">
+	             <label class="text-center">
+
+	            </div><br>
+
+	           <div class="form-group">
+
+                        <input type="file" name="uploadFile" size="40"><br>
+                        <input type="reset" name="Reset" style="border:1px solid black;" value="Reset">
+
+                    </div>
+
+             <div class="form-group">
+	    <button type="submit" class="btn btn-primary btn-block">Upload</button>
+            </div>
+
+         </form>
+
+			   
+			</div>
+                           </div>
+                          <div class="col-sm-4"></div>
+                                   
+                                      
+                                      
+                                      
+                                      
+                                  </div>                     
 		   <div class="clearfix"></div>
                       
                   </div>
@@ -302,5 +322,13 @@ button.input-group-addon {
 		});
 	</script>
 	<!-- //calendar -->
+        <%
+                    }
+    }
+                                                                    
+                                                                    
+                                                                    
+                                                                    
+                                                                    %>
 </body>
 </html>
